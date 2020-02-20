@@ -46,7 +46,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
             c_st = st.copy()
             c_st.append(word)
             qu.append(c_st)
-            del dictionary[word]
+        del dictionary[word]
     if end_word not in d_st:
         return 'None'
 
