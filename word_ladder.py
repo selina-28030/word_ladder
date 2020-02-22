@@ -11,7 +11,7 @@ def _adjacent(word1, word2):
     >>> _adjacent('stone','money')
     False
     '''
-    if len(word_1)!=len(word_2):
+    if len(word1)!=len(word2):
         return False
     s = 0
     for x,y in zip(word1, word2):
