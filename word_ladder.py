@@ -69,6 +69,8 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     st.append(start_word)
     qu = deque()
     qu.append(st)
+    if len(qu)==0:
+        return False
     while len(qu)!=0:
         d_st = qu.popleft()
         if _adjacent(d_st[-1],end_word): 
