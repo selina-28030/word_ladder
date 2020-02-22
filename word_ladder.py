@@ -72,13 +72,22 @@ def _adjacent(word1, word2):
     >>> _adjacent('stone','money')
     False
     '''
-    s = 0
-    for x,y in zip(word1, word2):
-        if x != y:
-            s+=1
-        else:
-            pass
-    if s > 1:
-        return False
-    else:
-        return True
+    with open(dictionary_file) as df:
+        dictionary=df.read()
+    dictionary=dictionary.split('\n')
+    st = []
+    st.append(start_word)
+    qu = deque()
+    qu.append(st)
+    while len(qu)!=0:
+        d_st = qu.popleft()
+        if _adjacent(d_st[-1],end_word):
+            d_st.append(end_word)
+            return d_st
+        for word in dictionary:
+            if _adjacent(word, d_st[-1]):
+                qu.append(d_st+[word])
+                dictionary.remove(word)
+            
+
+    return 'None'
