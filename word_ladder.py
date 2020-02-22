@@ -83,4 +83,4 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
             if _adjacent(word, d_st[-1]):
                 qu.append(d_st+[word])
                 dictionary.remove(word)
-    return 'None'
+    return None
