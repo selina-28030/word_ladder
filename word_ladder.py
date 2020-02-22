@@ -81,9 +81,12 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
             d_st.append(end_word)
             return d_st
 
+        to_remove=[]
         for word in dictionary:
             if _adjacent(word, d_st[-1]):
                 if word != d_st[-1]:
                     qu.append(d_st+[word])
-                dictionary.remove(word)
+                to_remove+=[word]
+        for w in to_remove:
+            dictionary.remove(w)
     return None
